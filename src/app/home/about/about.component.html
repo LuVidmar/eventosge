@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="./../../../assets/prof.png" alt="Giselle Espinguinha Foto Perfil">
+        </div>
+        <div class="col-sm-8">
+            <h1>Giselle Espinguinha</h1>
+            <hr>
+            <p>
+                “Te acompaño en el proceso de diseño, planificación, coordinación y producción de tu evento para que el
+                momento mas esperado sea único”.
+                <br> 
+                <a id="link" [routerLink]="['/about']">Ver más.</a>
+            </p>
+            
+            <a href="mailto:contacto@eventosge.com" target="blank">
+                <div class="mediaButton" (click)="registerAnalytics('mail')">
+                    <mdb-icon fas icon="envelope-square" size="2x"></mdb-icon>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/eventos.ge/" target="blank">
+                <div class="mediaButton" (click)="registerAnalytics('instagram')">
+                    <mdb-icon fab icon="instagram" size="2x"></mdb-icon>
+                </div>
+            </a>
+            <a href="https://wa.me/message/AV3HLCJC5I6PG1" target="blank">
+                <div class="mediaButton" (click)="registerAnalytics('whatsapp')">
+                    <mdb-icon fab icon="whatsapp-square" size="2x"></mdb-icon>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</div>

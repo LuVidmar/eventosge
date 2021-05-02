@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "eventos-ge"
+  },
+  "targets": {
+    "eventos-ge": {
+      "hosting": {
+        "eventosge": [
+          "eventos-ge"
+        ]
+      }
+    }
+  }
+}

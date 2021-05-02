@@ -1,0 +1,13 @@
+//Vars
+
+:root {
+    --darker-pink: #f2709c;
+    --orange-pink: #ff9472;
+    --black: #212529;
+}
+
+body{
+    background: var(--darker-pink);
+    background: linear-gradient(90deg, var(--darker-pink) 0%, var(--orange-pink) 100%);
+    min-height: 60vh;
+}

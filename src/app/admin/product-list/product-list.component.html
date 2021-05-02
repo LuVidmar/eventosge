@@ -1,0 +1,48 @@
+<!-- Editable table -->
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Lista de productos</h3>
+
+  <div class="card-body">
+
+    <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2">
+        <a class="text-success" (click)="add()">
+          <mdb-icon fas icon="plus" size="2x"></mdb-icon>
+        </a>
+      </span>
+
+      <!-- Table -->
+      <table class="table table-bordered table-responsive-md table-striped text-center">
+        <tr>
+          <th class="text-center">Descripcion</th>
+          <th class="text-center">Link de Imagen</th>
+          <th class="text-center">Imagen</th>
+        </tr>
+        <tr *ngFor="let item of itemList; let id = index" id="articleTables">
+          <td>
+            <span contenteditable="true" (keyup)="changeValue($event)"
+              (blur)="updateList(id, 'desc', $event)">{{item.desc}}</span>
+          </td>
+          <td>
+            <span contenteditable="true" (keyup)="changeValue($event)"
+              (blur)="updateList(id, 'imglink', $event)">{{item.imglink}}</span>
+          </td>
+          <td>
+            <img src="{{item.imglink}}" class="img-fluid" alt="Mal link">
+          </td>
+          <td>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0"
+                (click)="remove(id)">Eliminar</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
+  <button type="button" mdbBtn color="success" mdbWavesEffect (click)="submit()" style="width: fit-content;">Sincronizar</button>
+  <button type="button" mdbBtn color="warning" mdbWavesEffect (click)="refreshPage()" style="width: fit-content;">Descartar Cambios</button>
+
+</div>

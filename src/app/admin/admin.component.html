@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Panel de Administracion</h1>
+    <hr>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button mdbBtn type="button" color="light" class="waves-light" mdbWavesEffect (click)="setState('products')">Editar Productos</button>
+        <button mdbBtn type="button" color="light" class="waves-light" mdbWavesEffect (click)="setState('users')">Editar Usuarios</button>
+    </div>
+    <app-product-list *ngIf="selectedComponent == stateEnum.products"></app-product-list>
+    <h1 *ngIf="selectedComponent == stateEnum.users">CACA</h1>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<body>
+
+    <div class="padd">
+        <h1>{{title}}</h1>
+        <h1 style="float: right;">
+            <a [routerLink]="['/home']">
+                <mdb-icon fas icon="arrow-circle-left"></mdb-icon>
+            </a>
+        </h1>
+    </div>
+
+    <ul>
+        <li *ngFor='let image of loadedImages'>
+            <img *ngIf="image" [src]="image" [alt]="title +' Imagen de Galeria'" (click)="openModal(image)">
+            <!-- <img *ngIf="!images" src="./../../assets/loading.gif" alt="Loading GIF"> -->
+        </li>
+    </ul>
+
+    <div class="padd">
+        <button type="button" mdbBtn color="light" block="true" (click)="addMore(10)" mdbWavesEffect>Cargar 10 más</button>
+    </div>
+
+</body>

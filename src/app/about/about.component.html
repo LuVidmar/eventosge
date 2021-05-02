@@ -1,0 +1,21 @@
+<div id="container" (window:keydown)="move($event)">
+    <h1>¿Quién soy?</h1>
+    <h1 style="float: right;">
+        <a [routerLink]="['/home']">
+            <mdb-icon fas icon="arrow-circle-left"></mdb-icon>
+        </a>
+    </h1>
+</div>
+<table [style.background-image]="'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0, 0, 0, 0.5)), url(./../../assets/about/img'+i+'.jpg)'">
+    <tr>
+        <td (click)="prev()" style="cursor: pointer;">
+        <mdb-icon fas icon="caret-left"></mdb-icon>
+        </td>
+        <td class="text">
+        <p>{{texts[i]}}</p>
+        </td>
+        <td (click)="next()" style="cursor: pointer;">
+        <mdb-icon fas icon="caret-right"></mdb-icon>
+        </td>
+    </tr>
+</table>

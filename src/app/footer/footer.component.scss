@@ -1,0 +1,23 @@
+.container{
+    background: var(--darker-pink);
+    background: linear-gradient(90deg, var(--darker-pink) 0%, var(--orange-pink) 100%);
+    padding-top: 40pt;
+    padding-bottom: 20pt;
+    padding-right: 8vmin;
+    padding-left: 8vmin;
+    border-top: solid 1pt whitesmoke;
+    min-width: 100%;
+
+}
+
+h6{
+    color: whitesmoke;
+}
+
+p{
+    color: whitesmoke;
+}
+
+a{
+    color: whitesmoke;
+}

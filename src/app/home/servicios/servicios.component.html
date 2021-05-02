@@ -1,0 +1,44 @@
+<h1>Nuestros servicios</h1>
+<div class="row">
+
+    <!-- Cards -->
+    <div class="col-md-4" *ngFor="let serv of servicios">
+
+        <mdb-card cascade="true">
+
+            <!--Card image-->
+            <div class="view view-cascade overlay waves-light" mdbWavesEffect>
+                <mdb-card-img [src]="serv.img" alt="Servicio de Boxes festivas"></mdb-card-img>
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <!--/Card image-->
+
+            <mdb-card-body cascade="true" class="text-center">
+                <!--Card content-->
+                <h4 class="card-title">
+                    <strong>{{serv.title}}</strong>
+                </h4>
+                <h5>{{serv.shortdesc}}</h5>
+
+                <mdb-card-text>
+                    {{serv.longdesc}}
+                </mdb-card-text>
+
+                <hr>
+
+                <!--Gallery-->
+                <a [routerLink]="['/galeria', serv.router]" type="button" mdbBtn floating="true" size="sm" color="tw"
+                    class="waves-light" mdbWavesEffect>
+                    <mdb-icon class="circleButton" fas icon="images" size="2x"></mdb-icon>
+                </a>
+
+            </mdb-card-body>
+            <!--/.Card content-->
+
+        </mdb-card>
+
+    </div>
+
+</div>

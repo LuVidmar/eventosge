@@ -1,0 +1,43 @@
+.col-lg-4{
+    padding: 1vmin;
+}
+
+.row{
+    padding-left: 4vmin;
+    padding-right: 4vmin;
+    margin: 0;
+}
+
+h1{
+    background-color: whitesmoke;
+    padding: 5pt;
+    margin-left: 6vmin;
+    margin-right: 6vmin;
+    border-radius: 15pt;
+    padding-left: 10pt;
+    font-weight: lighter;
+}
+
+.circleButton{
+    padding: 7.5pt;
+    border-radius: 10pt !important;
+    background-color: transparent;
+    color: var(--black);
+    transition: all ease-in-out 250ms;
+}
+
+.circleButton:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+a{
+    color: white;
+}
+
+.col-md-4{
+    padding-top: 4vmin;
+}
+
+mdb-card-text{
+    text-align: center;
+}

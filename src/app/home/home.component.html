@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<header>
+    <app-navbar (scrollEv)="scrollto($event)"></app-navbar>
+</header>
+<body>
+    <app-main id="home"></app-main>
+    <div style="padding-top: 15vmin; padding-bottom: 15vmin;">
+        <div id="skewed" (mouseover)="aboutHoverOn()" (mouseout)="aboutHoverOff()">
+            <app-about id="about"></app-about>
+        </div>
+    </div>
+    <br><br><br>
+    <app-servicios id="services"></app-servicios>
+    <br><br><br>
+</body>
+</html>

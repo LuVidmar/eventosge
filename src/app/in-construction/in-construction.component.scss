@@ -1,0 +1,25 @@
+body {
+    height: 85vh;
+    background: var(--darker-pink);
+    background: linear-gradient(90deg, var(--darker-pink) 0%, var(--orange-pink) 100%);
+}
+
+h1{
+    font-size: 15vmin;
+    font-weight: lighter;
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+}
+
+.btns{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a{
+    color: var(--black);
+}

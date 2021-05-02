@@ -1,0 +1,11 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true" style="color: var(--white);">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Fullscreen</h4>
+    </div>
+    <div class="modal-body">
+        <img *ngIf="imglink" [src]="imglink" alt="Full Screen Image">
+    </div>
+</div>
