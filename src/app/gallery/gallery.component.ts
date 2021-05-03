@@ -14,9 +14,10 @@ import { PhotoVisualizerComponent } from '../photo-visualizer/photo-visualizer.c
 export class GalleryComponent implements OnInit {
 
   //Images
-  urls: Promise<string>[] = [];
+  urls: img[] = [];
   loadNumber: number = 10;
   loadedImages: string[] = [];
+  loadedall: Promise<boolean>;
 
   //Other vars
   titles = {
@@ -36,28 +37,55 @@ export class GalleryComponent implements OnInit {
     // Setting analytics
     analytics.logEvent(id);
 
-    // Get all images
-    storage.ref('galeria/' + id).listAll().forEach(ref => {
-      ref.items.forEach(item => {
-        var promUrl = item.getDownloadURL();
-        this.urls.push(promUrl);
+    //Creating array promise
+
+    // Get all images   
+    this.loadedall = new Promise((resolvebool, rejectbool) => {
+
+      storage.ref('galeria/' + id).listAll().forEach(ref => {
+
+        var i = 1;
+        ref.items.forEach(item => { //for each image
+
+          var name = item.name.split('.').slice(0, -1).join('.'); //take out extension
+          name = name.split('(').slice(0, -1).join('('); //takeout renumeration
+          var date = new Date(name);
+
+          item.getDownloadURL().then(url => { //get download
+
+            this.urls.push({ data: url, date: date });
+            if (i == ref.items.length) {
+              resolvebool(true); //finish loading
+            }
+            else {
+              i++;
+            }
+
+          })
+            .catch(reason => {
+              rejectbool(false);
+            })
+        });
+
       });
-      this.addMore(10);
 
     });
+
+    this.loadedall.then(loaded => {
+      if (loaded == true) {
+        var sorted = this.urls.sort((a, b) => +new Date(b.date) - +new Date(a.date));
+        this.urls = sorted;
+        this.addMore(10);
+      }
+    })
+
   }
 
   //Add more images
   addMore(n: number) {
     var prev: number = this.loadedImages.length;
-    if (prev + n < this.urls.length) {
-      for (let i = prev; i < (prev + n); i++) {
-        
-        this.urls[i].then(url => {
-          this.loadedImages.push(url);
-        });
-
-      }
+    for (let i = prev; i < (n + prev); i++) {
+      this.loadedImages.push(this.urls[i].data);
     }
   }
 
@@ -86,4 +114,9 @@ export class GalleryComponent implements OnInit {
     this.modalRef = this.modalService.show(PhotoVisualizerComponent, this.modalOptions)
   }
 
+}
+
+export interface img {
+  data: string,
+  date: Date
 }
