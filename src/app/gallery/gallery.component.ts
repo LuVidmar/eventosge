@@ -6,6 +6,8 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { MDBModalRef, MDBModalService } from 'angular-bootstrap-md';
 import { PhotoVisualizerComponent } from '../photo-visualizer/photo-visualizer.component';
 
+const INITLOADQUANT = 5;
+
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -54,7 +56,7 @@ export class GalleryComponent implements OnInit {
           item.getDownloadURL().then(url => { //get download
 
             this.urls.push({ data: url, date: date });
-            if (i == ref.items.length) {
+            if (i == INITLOADQUANT) {
               resolvebool(true); //finish loading
             }
             else {
@@ -75,7 +77,7 @@ export class GalleryComponent implements OnInit {
       if (loaded == true) {
         var sorted = this.urls.sort((a, b) => +new Date(b.date) - +new Date(a.date));
         this.urls = sorted;
-        this.addMore(10);
+        this.addMore(INITLOADQUANT);
       }
     })
 
